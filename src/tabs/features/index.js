@@ -24,6 +24,8 @@ import { useHttpQueue } from "../../hooks";
 import { espHttpURL } from "../../components/Helpers";
 import { T } from "../../components/Translations";
 import { useUiContext, useSettingsContext, useWsContext } from "../../contexts";
+import { ActionMenu } from "../../components/Navbar";
+
 import {
   RefreshCcw,
   RotateCcw,
@@ -428,8 +430,8 @@ const FeaturesTab = () => {
           </div>
         </Fragment>
       )}
-      <center>
-        <br />
+      <ActionMenu>
+        
         {!isLoading && (
           <ButtonImg
             m2
@@ -498,7 +500,7 @@ const FeaturesTab = () => {
             />
           </Fragment>
         )}
-      </center>
+      </ActionMenu>
       <br />
     </div>
   );
