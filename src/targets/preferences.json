@@ -36,6 +36,18 @@
           "type": "boolean",
           "label": "S176",
           "value": false
+        },
+        {
+          "id": "showinformationpage",
+          "type": "boolean",
+          "label": "S196",
+          "value": true
+        },
+        {
+          "id": "showmachinesettings",
+          "type": "boolean",
+          "label": "S197",
+          "value": true
         }
       ],
       "polling": [
@@ -73,7 +85,7 @@
           "id": "openterminalonstart",
           "type": "boolean",
           "label": "S93",
-          "value": false
+          "value": true
         },
         {
           "id": "verbose",
@@ -99,7 +111,7 @@
           "id": "openfilesonstart",
           "type": "boolean",
           "label": "S93",
-          "value": false
+          "value": true
         }
       ],
       "jog": [
@@ -113,7 +125,27 @@
           "id": "openjogonstart",
           "type": "boolean",
           "label": "S93",
+          "value": true
+        }
+      ],
+      "notification": [
+        {
+          "id": "shownotificationspanel",
+          "type": "boolean",
+          "label": "S63",
+          "value": true
+        },
+        {
+          "id": "opennotificationsonstart",
+          "type": "boolean",
+          "label": "S93",
           "value": false
+        },
+        {
+          "id": "notifautoscroll",
+          "type": "boolean",
+          "label": "S77",
+          "value": true
         }
       ],
       "macros": [

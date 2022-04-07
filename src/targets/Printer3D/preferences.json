@@ -11,15 +11,27 @@
           "id": "opentemperaturesonstart",
           "type": "boolean",
           "label": "S93",
-          "value": false
+          "value": true
+        },
+        {
+          "id": "showgraphctrls",
+          "type": "boolean",
+          "label": "P88",
+          "value": true
+        },
+        {
+          "id": "showextruderctrls",
+          "type": "boolean",
+          "label": "P82",
+          "value": true
         },
         {
           "id": "extrudermax",
           "type": "number",
           "label": "P48",
-          "value": "300",
+          "value": "280",
           "append": "P72",
-          "min": "1"
+          "depend":[{"id":"showextruderctrls", "value":true}]
         },
         {
           "id": "extruderpreheat",
@@ -27,7 +39,22 @@
           "label": "P68",
           "value": "190;220;230",
           "append": "P72",
-          "help": "S97"
+          "help": "S97",
+          "depend":[{"id":"showextruderctrls", "value":true}]
+        },
+        {
+          "id": "heatextruder",
+          "type": "text",
+          "label": "P91",
+          "value": "M104 S$ T#",
+          "help": "P94",
+          "depend":[{"id":"showextruderctrls", "value":true}]
+        },
+        {
+          "id": "showbedctrls",
+          "type": "boolean",
+          "label": "P83",
+          "value": true
         },
         {
           "id": "bedmax",
@@ -35,7 +62,8 @@
           "label": "P67",
           "value": "140",
           "append": "P72",
-          "min": "1"
+          "min": "1",
+          "depend":[{"id":"showbedctrls", "value":true}]
         },
         {
           "id": "bedpreheat",
@@ -43,14 +71,30 @@
           "label": "P69",
           "value": "50;90;110",
           "append": "P72",
-          "help": "S97"
+          "help": "S97",
+          "depend":[{"id":"showbedctrls", "value":true}]
+        },
+        {
+          "id": "heatbed",
+          "type": "text",
+          "label": "P92",
+          "value": "M140 S$",
+          "help": "P94",
+          "depend":[{"id":"showbedctrls", "value":true}]
+        },
+        {
+          "id": "showchamberctrls",
+          "type": "boolean",
+          "label": "P84",
+          "value": true
         },
         {
           "id": "chambermax",
           "type": "number",
           "label": "P70",
           "value": "140",
-          "append": "P72"
+          "append": "P72",
+          "depend":[{"id":"showchamberctrls", "value":true}]
         },
         {
           "id": "chamberpreheat",
@@ -58,7 +102,34 @@
           "label": "P71",
           "append": "P72",
           "value": "50;90;110",
-          "help": "S97"
+          "help": "S97",
+          "depend":[{"id":"showchamberctrls", "value":true}]
+        },
+        {
+          "id": "heatchamber",
+          "type": "text",
+          "label": "P93",
+          "value": "M141 S$",
+          "help": "P94",
+          "depend":[{"id":"showchamberctrls", "value":true}]
+        },
+        {
+          "id": "showprobectrls",
+          "type": "boolean",
+          "label": "P85",
+          "value": true
+        },
+        {
+          "id": "showredondantctrls",
+          "type": "boolean",
+          "label": "P86",
+          "value": true
+        },
+        {
+          "id": "showboardctrls",
+          "type": "boolean",
+          "label": "P87",
+          "value": true
         }
       ],
       "extruders": [
@@ -72,7 +143,7 @@
           "id": "openextrudersonstart",
           "type": "boolean",
           "label": "S93",
-          "value": false
+          "value": true
         },
         {
           "id": "ismixedextruder",

@@ -23,7 +23,7 @@ import { useUiContext } from "../../contexts";
 import { T } from "../../components/Translations";
 import { List } from "preact-feather";
 import { iconsFeather } from "../../components/Images";
-import { defaultPanelsList, iconsTarget } from "../../targets";
+import { defaultPanelsList, iconsTarget, QuickButtonsBar } from "../../targets";
 import { ExtraPanelElement } from "../../components/Panels/ExtraPanel";
 
 const Dashboard = () => {
@@ -148,8 +148,9 @@ const Dashboard = () => {
             </ul>
           </div>
         )}
+        <QuickButtonsBar />
       </div>
-      <div class="panels-container">
+      <div class="panels-container m-2">
         {panels.visibles.map((panel) => {
           return <Fragment>{panel.content}</Fragment>;
         })}

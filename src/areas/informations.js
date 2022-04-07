@@ -18,11 +18,14 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 import { h } from "preact";
-import { InformationsControls } from "../targets";
+import { InformationsControls, QuickButtonsBar } from "../targets";
 const Informations = () => {
   return (
     <div id="infopage" class="container m-2">
       <InformationsControls />
+      <div class="information-buttons-bar m-2">
+        <QuickButtonsBar />
+      </div>
     </div>
   );
 };

@@ -19,7 +19,7 @@
 
 import { h } from "preact";
 import { useRef, useState, useEffect } from "preact/hooks";
-import { Eye, EyeOff, Search } from "preact-feather";
+import { Eye, EyeOff, Search, ChevronDown, HelpCircle } from "preact-feather";
 import { ButtonImg } from "../../Controls";
 import { ScanApList } from "../ScanAp";
 import { T } from "./../../Translations";
@@ -57,7 +57,9 @@ const Input = ({
   type = "text",
   id = "",
   value = "",
+  width,
   setValue,
+  options = [],
   extra,
   inline,
   append,
@@ -156,6 +158,60 @@ const Input = ({
         <Reveal applyTo={inputref} />
       </div>
     );
+  if (extra == "dropList") {
+    return (
+      <div class={`input-group ${inline ? "column" : ""} `}>
+        <input
+          spellcheck="false"
+          lang="en-US"
+          ref={inputref}
+          style={width ? "width:" + width : ""}
+          id={id}
+          class="form-input"
+          {...props}
+          placeholder=""
+          {...rest}
+          onInput={onInput}
+        />
+        {append && <span class="input-group-addon">{T(append)}</span>}
+        {options.length > 0 && (
+          <ButtonImg
+            class="input-group-btn"
+            icon={<ChevronDown color="blue" />}
+            data-tooltip={T(help)}
+            onClick={(e) => {
+              e.target.blur();
+              const modalId = "list" + id;
+              showModal({
+                modals,
+                title: T("S198"),
+                button2: { text: T("S24") },
+                icon: <HelpCircle />,
+                id: modalId,
+                content: (
+                  <ul class="selection-list">
+                    {options.map((option) => {
+                      return (
+                        <li
+                          class="item-selection-list"
+                          onclick={(e) => {
+                            setValue(option.value);
+                            modals.removeModal(modals.getModalIndex(modalId));
+                          }}
+                        >
+                          {option.display}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ),
+              });
+            }}
+          />
+        )}
+      </div>
+    );
+  }
   if (extra == "scan") {
     return (
       <div class={`input-group ${inline ? "column" : ""} `}>

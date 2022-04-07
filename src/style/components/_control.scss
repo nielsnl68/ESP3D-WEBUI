@@ -2,7 +2,7 @@
   text-align: center;
 }
 .buttons-bar {
-  flex: 0 1 auto;
+  display: flex;
 }
 
 .btn-xs {
@@ -29,8 +29,29 @@
   width: 100%;
 }
 
+.information-buttons-bar {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
 .drop-zone {
   border: none;
+  height: 100%;
+}
+
+.selection-list {
+  list-style-type: none;
+}
+
+.item-selection-list {
+  cursor: pointer;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.item-selection-list:hover {
+  background-color: #f1f1fc;
 }
 
 .files-list {
@@ -266,6 +287,18 @@ a label {
 
 .flex-wrap .form-label {
   margin-right: 10px;
+}
+
+.notification-line {
+  overflow-x: hidden;
+  line-height: 24px !important;
+  padding-top: 4px !important;
+  padding-left: 4px;
+  padding-right: 4px;
+  cursor: pointer;
+}
+.notification-line:hover {
+  background-color: #f1f1fc;
 }
 
 .feather-icon-container .text-menu-item,
